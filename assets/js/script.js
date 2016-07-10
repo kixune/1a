@@ -7,7 +7,7 @@
 // 5. Players repeat steps 3 and 4 until they"ve reached a total of 10 questions
 // 6. The Player with more correct answers, wins!
 
-console.log("LOL");
+
 
 
 
@@ -36,8 +36,6 @@ function nextQ() {
    random = Math.floor(Math.random() * 10);
    question = qA[random].q;
    answer = qA[random].a;
-   console.log(question);
-   console.log(answer);
    var displayQ = $("#ask");
    displayQ.html(question);
 }nextQ();
@@ -47,11 +45,12 @@ function nextQ() {
 
 
 $(document).ready(function () {
-console.log("hi");
+
 //1.
 var playerOne = prompt("Player 1:\nPlease enter your name");
 var playerTwo = prompt("Player 2:\nPlease enter your name");
-
+var playerOneScore = 0;
+var playerTwoScore = 0;
 $(".playOne").html(playerOne + ": 0");
 $(".playTwo").html(playerTwo + ": 0");
 
@@ -73,12 +72,17 @@ var falseButton = $("#option2");
 
 trueButton.click(function() {
   var choice1 = true;
-
-  if (choice1 == answer) {
+  if (totalTurns < 10) {
 
   }
-  else{
 
+  else if ((choice1 == answer) && (totalTurns % 2 == 1)) {
+    playerOneScore++
+    console.log(playerOneScore);
+  }
+  else if ((choice1 == answer) && (totalTurns % 2 == 0)){
+    playerTwoScore++
+    console.log(playerTwoScore);
   }
   totalTurns++;
   whoseTurn();
