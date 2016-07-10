@@ -31,6 +31,7 @@ var qA = [pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8, pair9, pair10]
 var random = 0;
 var question = "";
 var answer = true;
+$(document).ready(function () {
 
 function nextQ() {
    random = Math.floor(Math.random() * 10);
@@ -44,16 +45,21 @@ function nextQ() {
 
 
 
-$(document).ready(function () {
+
 
 //1.
 var playerOne = prompt("Player 1:\nPlease enter your name");
 var playerTwo = prompt("Player 2:\nPlease enter your name");
 var playerOneScore = 0;
 var playerTwoScore = 0;
-$(".playOne").html(playerOne + ": 0");
-$(".playTwo").html(playerTwo + ": 0");
 
+function updateScore() {
+$(".playOne").html(playerOne + ":" + " " + playerOneScore);
+$(".playTwo").html(playerTwo + ":" + " " + playerTwoScore);
+}updateScore();
+
+var playerOneCorrect = 0;
+var playerTwoCorrect = 0;
 //2.
 var totalTurns = 1;
 
@@ -64,7 +70,36 @@ function whoseTurn() {
   else {
     $("h2").html(playerTwo + "'s turn");
   }
-}whoseTurn();
+}
+whoseTurn();
+
+function reset() {
+playerOneCorrect = 0;
+playerTwoCorrect = 0;
+totalTurns = 1;
+}
+
+function checkWinner() {
+  if (totalTurns > 10) {
+    if (playerOneCorrect == playerTwoCorrect) {
+      alert("DEUCE");
+      reset()
+    } else if (playerOneCorrect > playerTwoCorrect) {
+      alert(playerOne + " " + "wins!");
+      playerOneScore++;
+      updateScore();
+      reset();
+      whoseTurn();
+    } else {
+      alert(playerTwo + " " + "wins!");
+      playerTwoScore++;
+      updateScore();
+      reset();
+      whoseTurn();
+    }
+  }
+
+}
 
 
 var trueButton = $("#option1");
@@ -72,19 +107,18 @@ var falseButton = $("#option2");
 
 trueButton.click(function() {
   var choice1 = true;
-  if (totalTurns < 10) {
 
-  }
 
-  else if ((choice1 == answer) && (totalTurns % 2 == 1)) {
-    playerOneScore++
-    console.log(playerOneScore);
+  if ((choice1 == answer) && (totalTurns % 2 == 1)) {
+    playerOneCorrect++;
+    console.log("playerOne "+ playerOneCorrect);
   }
-  else if ((choice1 == answer) && (totalTurns % 2 == 0)){
-    playerTwoScore++
-    console.log(playerTwoScore);
+  else if ((choice1 == answer) && (totalTurns % 2 == 0)) {
+    playerTwoCorrect++;
+    console.log("playerTwo "+ playerTwoCorrect);
   }
   totalTurns++;
+  checkWinner();
   whoseTurn();
   nextQ();
 });
@@ -92,13 +126,16 @@ trueButton.click(function() {
 falseButton.click(function() {
   var choice2 = false;
 
-  if (choice2 == answer) {
-
+  if ((choice2 == answer) && (totalTurns % 2 == 1)) {
+    playerOneCorrect++;
+    console.log("playerOne "+ playerOneCorrect);
   }
-  else{
-
+  else if ((choice2 == answer) && (totalTurns % 2 == 0)){
+    playerTwoCorrect++;
+    console.log("playerTwo "+ playerTwoCorrect);
   }
   totalTurns++;
+  checkWinner();
   whoseTurn();
   nextQ();
 });
