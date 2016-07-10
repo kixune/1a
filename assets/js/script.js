@@ -91,16 +91,13 @@ function checkWinner() {
     } else if (playerOneCorrect > playerTwoCorrect) {
       alert(playerOne + " " + "wins!");
       playerOneScore++;
-      updateScore();
-      reset();
-      whoseTurn();
+
     } else {
       alert(playerTwo + " " + "wins!");
       playerTwoScore++;
-      updateScore();
-      reset();
-      whoseTurn();
     }
+    updateScore();
+    reset();
   }
 
 }
