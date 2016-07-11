@@ -28,6 +28,7 @@ $(document).ready(function () {
   var pair8 = new pair("Friend or faux?<br>Therein, lies the rub", false);
   var pair9 = new pair("This quiz, it is good, no?<br>Now now, never suck-up to win!", false);
   var pair10 = new pair("\"Work it harder, make it better,<br>do it faster, makes us stronger.\"<br><br>Is the official motto of the International Bakers Society.", false);
+  
 
   var qA = [pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8, pair9, pair10];
 
