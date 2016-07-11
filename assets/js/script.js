@@ -18,6 +18,7 @@ $(document).ready(function () {
     this.q = q;
     this.a = a;
   }
+
   var pair1 = new Pair("Questions can be answers?", true);
   var pair2 = new Pair("\"Peter Piper picked a peck of pickled peppers.\"<br><br>Perhaps, philosophically, Peter is a pompous prick and a perpetual kleptomanic.", true);
   var pair3 = new Pair("(typeof \"true\" == \"string\");<br>Returns true.<br> True?<br>hint: Think through.", true);
@@ -34,8 +35,6 @@ $(document).ready(function () {
   var pair13 = new Pair("Cat Power<br>aka<br>Charlyn Marie \"Chan\" Marshall<br>wrote a song called<br>\'The Greatest\'.", true);
   var pair14 = new Pair("____ Grit<br>is a movie directed, written, produced and edited by the Coen Brothers.", true);
 
-
-
   var qA = [pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8, pair9, pair10, pair11, pair12, pair13, pair14];
 
 
@@ -46,6 +45,7 @@ var playerOneScore = 0;
 var playerTwoScore = 0;
 $("#option1").html("True");
 $("#option2").html("False");
+
 function updateScore() {
 $(".playOne").html(playerOne + " " + ":" + " " + playerOneScore);
 $(".playTwo").html(playerTwo + " " + ":" + " " + playerTwoScore);
@@ -137,7 +137,6 @@ function checkWinner() {
     updateScore();
     reset();
   }
-
 }
 
 function reset() {
