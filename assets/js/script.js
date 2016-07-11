@@ -21,7 +21,7 @@ $(document).ready(function () {
 
   var pair1 = new Pair("Questions can be answers?", true);
   var pair2 = new Pair("\"Peter Piper picked a peck of pickled peppers.\"<br><br>Perhaps, philosophically, Peter is a pompous prick and a perpetual kleptomanic.", true);
-  var pair3 = new Pair("(typeof \"true\" == \"string\");<br>Returns true.<br> True?<br>hint: Think through.", true);
+  var pair3 = new Pair("(typeof \"true\" === \"string\");<br>Returns true.<br> True?<br>hint: Think through.", true);
   var pair4 = new Pair("\"Bacon\"", true);
   var pair5 = new Pair("According to Led Zeppelin:<br><br>If there is a bustle in your hedgerow, you should not be alarmed.", true);
   var pair6 = new Pair("\"Barny creates quiz,<br>The quiz works and Barny lives,<br>Barny completes 1a.\"<br><br>Is the above a haiku?", false);
@@ -30,32 +30,47 @@ $(document).ready(function () {
   var pair9 = new Pair("This quiz, it is good, no?<br>Now now, never suck-up to win!", false);
   var pair10 = new Pair("\"Work it harder, make it better,<br>do it faster, makes us stronger.\"<br><br>Is the official motto of the International Bakers Society.", false);
   //add more questions
-  var pair11 = new Pair("The South American branch of General Assembly is located just beside Machu Picchu.", false);
+  var pair11 = new Pair("The South American branch of General Assembly is located just outside Machu Picchu.", false);
   var pair12 = new Pair("\"Cold War Kids\" is an organisation founded to benefit children involved in \'The Cold War\'.", false);
   var pair13 = new Pair("Cat Power<br>aka<br>Charlyn Marie \"Chan\" Marshall<br>wrote a song called<br>\'The Greatest\'.", true);
-  var pair14 = new Pair("____ Grit<br>is a movie directed, written, produced and edited by the Coen Brothers.", true);
+  var pair14 = new Pair("\'____ Grit\'<br>is a movie directed, written, produced and edited by the Coen Brothers.", true);
 
   var qA = [pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8, pair9, pair10, pair11, pair12, pair13, pair14];
 
 
 //1.
-var playerOne = prompt("Player 1:\nPlease enter your name");
-var playerTwo = prompt("Player 2:\nPlease enter your name");
+
+var playerOne = "";
+function getPlayerOneName() {
+  do {
+    playerOne = prompt("Player 1:\nPlease enter your name");
+  } while (playerOne === null || playerOne === "");
+}
+getPlayerOneName();
+
+playerTwo = "";
+function getPlayerTwoName() {
+  do {
+    playerTwo = prompt("Player 2:\nPlease enter your name");
+  } while (playerTwo === null || playerTwo === "");
+}
+getPlayerTwoName();
+
 var playerOneScore = 0;
 var playerTwoScore = 0;
 $("#option1").html("True");
 $("#option2").html("False");
 
 function updateScore() {
-$(".playOne").html(playerOne + " " + ":" + " " + playerOneScore);
-$(".playTwo").html(playerTwo + " " + ":" + " " + playerTwoScore);
+$(".playOne").html(playerOne + " : " + playerOneScore);
+$(".playTwo").html(playerTwo + " : " + playerTwoScore);
 }updateScore();
 
 //2.
 var totalTurns = 1;
 
 function whoseTurn() {
-  if (totalTurns % 2 == 1) {
+  if (totalTurns % 2 === 1) {
     $("h2").html(playerOne + "'s turn");
   }
   else {
@@ -86,13 +101,12 @@ var trueButton = $("#option1");
 var falseButton = $("#option2");
 
 trueButton.click(function() {
-  var choice1 = true;
 
-  if ((choice1 == answer) && (totalTurns % 2 == 1)) {
+  if ((true === answer) && (totalTurns % 2 === 1)) {
     playerOneCorrect++;
     console.log("playerOne "+ playerOneCorrect);
   }
-  else if ((choice1 == answer) && (totalTurns % 2 == 0)) {
+  else if ((true === answer) && (totalTurns % 2 === 0)) {
     playerTwoCorrect++;
     console.log("playerTwo "+ playerTwoCorrect);
   }
@@ -103,13 +117,12 @@ trueButton.click(function() {
 });
 
 falseButton.click(function() {
-  var choice2 = false;
 
-  if ((choice2 == answer) && (totalTurns % 2 == 1)) {
+  if ((false === answer) && (totalTurns % 2 === 1)) {
     playerOneCorrect++;
     console.log("playerOne "+ playerOneCorrect);
   }
-  else if ((choice2 == answer) && (totalTurns % 2 == 0)){
+  else if ((false === answer) && (totalTurns % 2 === 0)){
     playerTwoCorrect++;
     console.log("playerTwo "+ playerTwoCorrect);
   }
@@ -124,22 +137,22 @@ falseButton.click(function() {
 //5., 6.
 function checkWinner() {
   if (totalTurns > 10) {
-    if (playerOneCorrect == playerTwoCorrect) {
+    if (playerOneCorrect === playerTwoCorrect) {
       alert("DEUCE");
-      reset();
+      restart();
     } else if (playerOneCorrect > playerTwoCorrect) {
-      alert(playerOne + " " + "wins!");
+      alert(playerOne + " wins!");
       playerOneScore++;
     } else {
-      alert(playerTwo + " " + "wins!");
+      alert(playerTwo + " wins!");
       playerTwoScore++;
     }
     updateScore();
-    reset();
+    restart();
   }
 }
 
-function reset() {
+function restart() {
   playerOneCorrect = 0;
   playerTwoCorrect = 0;
   totalTurns = 1;
