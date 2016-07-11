@@ -22,7 +22,7 @@ $(document).ready(function () {
   var pair1 = new Pair("Questions can be answers?", true);
   var pair2 = new Pair("\"Peter Piper picked a peck of pickled peppers.\"<br><br>Perhaps, philosophically, Peter is a pompous prick and a perpetual kleptomanic.", true);
   var pair3 = new Pair("(typeof \"true\" === \"string\");<br>Returns true.<br> True?<br>hint: Think through.", true);
-  var pair4 = new Pair("\"Bacon\"", true);
+  var pair4 = new Pair("\"Bacon.\"", true);
   var pair5 = new Pair("According to Led Zeppelin:<br><br>If there is a bustle in your hedgerow, you should not be alarmed.", true);
   var pair6 = new Pair("\"Barny creates quiz,<br>The quiz works and Barny lives,<br>Barny completes 1a.\"<br><br>Is the above a haiku?", false);
   var pair7 = new Pair("Short is shorter than Long if we assume they are both strings and are comparing their length.", false);
@@ -39,7 +39,6 @@ $(document).ready(function () {
 
 
 //1.
-
 var playerOne = "";
 function getPlayerOneName() {
   do {
@@ -56,17 +55,18 @@ function getPlayerTwoName() {
 }
 getPlayerTwoName();
 
+// 2.
 var playerOneScore = 0;
 var playerTwoScore = 0;
-$("#option1").html("True");
-$("#option2").html("False");
 
 function updateScore() {
 $(".playOne").html(playerOne + " : " + playerOneScore);
 $(".playTwo").html(playerTwo + " : " + playerTwoScore);
 }updateScore();
 
-//2.
+$("#option1").html("True");
+$("#option2").html("False");
+
 var totalTurns = 1;
 
 function whoseTurn() {
