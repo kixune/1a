@@ -14,12 +14,12 @@ This quiz was made to be submitted as an assignment. The main objective (as told
 
 ### Use Cases
 
-⋅⋅1. Players (two of them) submit names
-⋅⋅2. Start quiz
-⋅⋅3. Each Player takes turns answering questions which are displayed in no particular sequence.
-⋅⋅4. After answering by clicking on true or false, view next question
-⋅⋅5. Players repeat steps 3 and 4 until they've reached a total of 10 questions
-⋅⋅6. The Player with more correct answers, wins!
+1. Players (two of them) submit names
+2. Start quiz
+3. Each Player takes turns answering questions which are displayed in no particular sequence.
+4. After answering by clicking on true or false, view next question
+5. Players repeat steps 3 and 4 until they've reached a total of 10 questions
+6. The Player with more correct answers, wins!
 
 
 ### Issues Faced
