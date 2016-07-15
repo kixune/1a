@@ -28,3 +28,12 @@ Being unfamiliar to coding, I was unable to approach the project using OOP. Fort
 
 Being extremely silly was a huge part of this project. Prior to the project, I initialised git in the wrong folder and.....
 that is not something I ever wish to do again.
+
+
+### Resources
+
+_Fonts_
+[Google Fonts - Codystar](https://fonts.googleapis.com/css?family=Codystar)
+
+_Libraries_
+[Jquery](https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js)
