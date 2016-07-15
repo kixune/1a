@@ -33,7 +33,7 @@ that is not something I ever wish to do again.
 ### Resources
 
 _Fonts_
-⋅⋅*[Google Fonts - ](https://fonts.googleapis.com/css?family=Codystar)
+⋅⋅* [Google Fonts - Codystar](https://fonts.googleapis.com/css?family=Codystar)
 
 _Libraries_
-⋅⋅*[Jquery](https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js)
+⋅⋅* [Jquery](https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js)
