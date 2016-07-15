@@ -8,10 +8,6 @@
 // 6. The Player with more correct answers, wins!
 
 
-
-
-
-
 $(document).ready(function() {
 
   var playerOne = "";
@@ -24,6 +20,10 @@ $(document).ready(function() {
   var random = 0;
   var question = "";
   var answer = true;
+  var trueButton = $("#option1");
+  var falseButton = $("#option2");
+
+
   function Pair(q, a) {
     this.q = q;
     this.a = a;
@@ -71,7 +71,7 @@ $(document).ready(function() {
 
 
   // 2. The real fun part
-  // Create a function to record how many times a player has won
+  // Create a function to display how many times a player has won
   function updateScore() {
     $(".playOne").html(playerOne + " : " + playerOneScore);
     $(".playTwo").html(playerTwo + " : " + playerTwoScore);
@@ -102,9 +102,35 @@ $(document).ready(function() {
 
   //3., 4.
 
-  var trueButton = $("#option1");
-  var falseButton = $("#option2");
 
+
+
+
+  //5., 6. Create a function that will check who has more correct answers after a total of 10 questions have been asked. Whichever has higher, raise their score by 1. If correct answers are of same quantity, display draw and restart. Regardless of the aforementioned, call functions that update the scoreboard and restart the quiz.
+  function checkWinner() {
+    if (totalTurns > 10) {
+      if (playerOneCorrect === playerTwoCorrect) {
+        alert("DEUCE");
+        restart();
+      } else if (playerOneCorrect > playerTwoCorrect) {
+        alert(playerOne + " wins!");
+        playerOneScore++;
+      } else {
+        alert(playerTwo + " wins!");
+        playerTwoScore++;
+      }
+      updateScore();
+      restart();
+    }
+  }
+
+  // Create a function that resets values pertaiining to a round of the quiz
+  function restart() {
+    playerOneCorrect = 0;
+    playerTwoCorrect = 0;
+    totalTurns = 1;
+    qA = [pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8, pair9, pair10, pair11, pair12, pair13, pair14];
+  }
 
   // MOTHERSHIP
   function gameInit(){
@@ -117,8 +143,8 @@ $(document).ready(function() {
     nextQ();
     $("#option1").html("True");
     $("#option2").html("False");
-    // Create a function that will determine whose turn it is, listen for his/her answer, and compare it with the actual answer. If they match, add a point to the respective player. Regardless of aforementioned, function is to include: an addition to the number of turns played, calling of a check win function, refreshing whose turn display, and query display
 
+    // Create a function that will determine whose turn it is, listen for his/her answer, and compare it with the actual answer. If they match, add a point to the respective player. Regardless of aforementioned, function is to include: an addition to the number of turns played, calling of a check win function, refreshing whose turn display, and query display.
     trueButton.click(function() {
 
       if ((true === answer) && (totalTurns % 2 === 1)) {
@@ -150,33 +176,5 @@ $(document).ready(function() {
     });
   }
   gameInit();
-
-
-  //5., 6. Create a function that will check who has more correct answers after a total of 10 questions have been asked. Whichever has higher, raise their score by 1. If correct answers are of same quantity, display draw and restart. Regardless of the aforementioned, call functions that update the scoreboard and restart the quiz.
-  function checkWinner() {
-    if (totalTurns > 10) {
-      if (playerOneCorrect === playerTwoCorrect) {
-        alert("DEUCE");
-        restart();
-      } else if (playerOneCorrect > playerTwoCorrect) {
-        alert(playerOne + " wins!");
-        playerOneScore++;
-      } else {
-        alert(playerTwo + " wins!");
-        playerTwoScore++;
-      }
-      updateScore();
-      restart();
-    }
-  }
-
-  // Create a function that resets values pertaiining to a round of the quiz
-  function restart() {
-    playerOneCorrect = 0;
-    playerTwoCorrect = 0;
-    totalTurns = 1;
-    qA = [pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8, pair9, pair10, pair11, pair12, pair13, pair14];
-  }
-
 
 });
