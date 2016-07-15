@@ -32,6 +32,9 @@ that is not something I ever wish to do again.
 
 ### Resources
 
+_CSS RESET_
+* [Meyerweb](http://meyerweb.com/eric/tools/css/reset/reset.css)
+
 _Fonts_
 * [Google Fonts - Codystar](https://fonts.googleapis.com/css?family=Codystar)
 
