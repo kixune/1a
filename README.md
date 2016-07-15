@@ -14,12 +14,17 @@ This quiz was made to be submitted as an assignment. The main objective (as told
 
 ### Use Cases
 
-1. Players (two of them) submit names
-2. Start quiz
+1. Players (two of them) submit names.
+2. Start quiz.
 3. Each Player takes turns answering questions which are displayed in no particular sequence.
-4. After answering by clicking on true or false, view next question
-5. Players repeat steps 3 and 4 until they've reached a total of 10 questions
+4. After answering by clicking on true or false, view next question.
+5. Players repeat steps 3 and 4 until they've reached a total of 10 questions.
 6. The Player with more correct answers, wins!
 
 
 ### Issues Faced
+
+Being unfamiliar to coding, I was unable to approach the project using OOP. Fortunately, the emphasis for the quiz was solely on functionality and not aesthetic, which allowed me more time to work on the logic.
+
+Being extremely silly was a huge part of this project. Prior to the project, I initialised git in the wrong folder and.....
+that is not something I ever wish to do again.
